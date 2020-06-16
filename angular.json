@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "controlMuebles": {
@@ -28,6 +28,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -123,6 +124,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "controlMuebles"
+    }
+  },
+  "defaultProject": "controlMuebles",
+  "cli": {
+    "analytics": "30b171f0-3d4b-4c1e-a6f9-81c6c3d0b1c5"
+  }
 }

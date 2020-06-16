@@ -1,0 +1,63 @@
+<nav id="mainNavbar" class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <a class="navbar-brand" href="#">GAP</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+       data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+       aria-expanded="false" aria-label="Toggle navigation"
+       (click)="toggleCollapsed()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div id="navbarSupportedContent" [ngClass]="{'collapse': collapsed, 'navbar-collapse': true}">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown"dropdown >
+            <a class="nav-link dropdown-toggle "  dropdownToggle id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Control
+            </a>
+            <div class="dropdown-menu"  *dropdownMenu aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" (click)="muebles()">Muebles</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" (click)="insumos()">Insumos</a>
+  
+            </div>
+          </li>
+        <li class="nav-item dropdown"dropdown >
+            <a class="nav-link dropdown-toggle "  dropdownToggle    id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Registrar
+            </a>
+            <div class="dropdown-menu"  *dropdownMenu aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" (click)="registrarM()">Mueble</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" (click)="registrarI()">Insumo</a>
+  
+            </div>
+          </li> 
+        <li class="nav-item dropdown"dropdown >
+            <a class="nav-link dropdown-toggle "  dropdownToggle   id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Revision
+            </a>
+            <div class="dropdown-menu"  *dropdownMenu aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" (click)="revisarM()">Revisar mueble</a>
+              <div class="dropdown-divider" ></div>
+              <a class="dropdown-item" (click)="revisarI()">Revisar insumo</a>
+  
+            </div>
+          </li>       
+          <li class="nav-item dropdown"dropdown *ngIf="jefe">
+            <a class="nav-link dropdown-toggle "  dropdownToggle   id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Autorizar
+            </a>
+            <div class="dropdown-menu"  *dropdownMenu aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" (click)="autorizarM()">Autorizar muebles </a>
+              <div class="dropdown-divider" ></div>
+              <a class="dropdown-item"  (click)="autorizarI()">Autorizar insumos</a>
+  
+            </div>
+          </li>   
+        <li class="nav-item ">
+            <a class="nav-link" href="#">Generar reporte <span class="sr-only"></span></a>
+          </li>
+      </ul>
+              <button class="btn btn btn-outline-danger my-2 my-sm-0" type="submit" (click)="logout()">Cerrar Sesión</button>
+            <ul></ul> 
+
+    </div>
+  </nav>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+
+
+<div class="card" style="margin: 20px;">
+
+    <div class=" card-body logotipos text-center"  style="padding: 10px;">
+      <img src="assets/img/GAP logo.png" alt="">
+  </div>
+    <form [formGroup] = "formularioLogin"> 
+        <div class="form-group" style="margin-right: 30px; margin-left: 20px; margin-bottom: 10px;">
+          <label for="email">Correo electrónico</label>
+          <input type="email" class="form-control" formControlName="email" id="email" placeholder="Ingresa correo">
+          <div  *ngIf="formularioLogin.controls['email'].invalid && formularioLogin.controls['email'].dirty" class="alert alert-danger" role="alert">
+           <span  *ngIf="formularioLogin.controls['email'].errors.required" >Correo es requerrido</span> 
+           <span *ngIf="formularioLogin.controls['email'].errors.email">Correo no es valido</span> 
+          </div>
+        </div>
+        <div class="form-group" style="margin-right: 30px; margin-left: 20px; margin-bottom: 10px;">
+          <label for="password">Contraseña</label>
+          <input type="password" (keyUp.enter)="ingresar()"class="form-control" id="password"  formControlName="password" placeholder="Ingresa contraseña">
+          <div  *ngIf="formularioLogin.controls['password'].invalid && formularioLogin.controls['password'].dirty" class="alert alert-danger" role="alert">
+            <span  *ngIf="formularioLogin.controls['password'].errors.required" >La contraseña es requerida</span> 
+            
+           </div>
+        </div>
+       
+        <button type="submit" (click)="ingresar()"[disabled] ="!formularioLogin.valid"  style="margin-right: 30px; margin-left: 20px; margin-bottom: 10px;" class="btn btn-primary">Ingresar</button>
+      </form>
+
+      <div  *ngIf="!datosCorrectos" class="alert alert-danger" role="alert">
+        {{textoError}}
+      </div>
+
+      <ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "ball-beat" [fullScreen] = "true"><p style="color: white" > Ingresando... </p></ngx-spinner>
+
+</div>
+
+</body>
+
+</html>

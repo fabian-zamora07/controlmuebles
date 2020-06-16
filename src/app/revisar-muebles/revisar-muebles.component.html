@@ -1,0 +1,55 @@
+<div class="titutlo">
+  <div style="margin-top: 60px;">
+    
+      <h5 class="card-title" style="margin-bottom: 0px;">Revisar muebles</h5>
+  </div>
+  </div>
+  <div class="titutlo" *ngIf = "num === 0" style="margin-top: 10px;">              
+    <h5 class="card-title" style="margin-bottom: 0px;" >Todos los muebles han sido revisados</h5>
+
+</div>
+<div class="table-wrapper-scroll-y" >
+    <table class= "table table-striped table-bordered table-hover table-responsive-sm table-responsive-md table-responsive-lg" style="margin-bottom: 50px;" >
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">Color</th>
+            <th scope="col">Imagen</th>
+            <th scope="col">Tipo</th>
+            <th scope="col">Valor</th>
+            <th scope="col">Codigo</th>
+            <th scope="col">Modificar</th>
+            <th scope="col">Revisar</th>             
+          </tr>
+        </thead>
+        <tbody>
+          
+          <!-- Listamos los datos mediante la directiva ngFor -->      
+
+          <tr *ngFor="let dato of item" >
+
+            <th *ngIf = "dato.revisado === false">{{dato.nombre}}</th>
+            <td *ngIf = "dato.revisado === false">{{dato.descripcion}}</td>
+            <td *ngIf = "dato.revisado === false">{{dato.color}}</td>
+            <td *ngIf = "dato.revisado === false"><i (click)="mostrarFoto(dato.imagen, 'Mueble')" class="fa fa-picture-o " aria-hidden="true">Imagen</i></td>
+            <td *ngIf = "dato.revisado === false">{{dato.tipo}}</td>
+            <td *ngIf = "dato.revisado === false">{{dato.valor}}</td> 
+            <td *ngIf = "dato.revisado === false"  > <ngx-barcode6
+                
+                [bc-format]="'MSI'"
+                [bc-value]="dato.codigoB"
+                [bc-display-value]="true"
+                [bc-element-type]= "elementType"
+              >
+              </ngx-barcode6> </td>
+              <td *ngIf = "dato.revisado === false"><a  [routerLink]="['/modificar-mueble', dato.id]"href="modificar-mueble" class="btn btn-primary ">Modificar</a></td> 
+              <td *ngIf = "dato.revisado === false" ><a  (click)="revisar(dato.id)" class="btn btn-success" title="Revisar">Revisar</a></td>   
+                          
+          </tr>
+    
+        </tbody>
+      </table>
+    </div>
+    
+    

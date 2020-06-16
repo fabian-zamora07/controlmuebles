@@ -1,0 +1,59 @@
+
+<div class="titutlo">
+  <div style="margin-top: 60px;">
+    
+    <h5 class="card-title" style="margin-bottom: 0px;">Control insumos</h5>
+  </div>
+  </div>
+  <div class="row"style="margin-left: 10px; margin-right:10px">
+<div class="col-sm-6 " >
+  
+    <label for="opcion">Buscar por nombre:</label>
+ 
+    <input class="form-control " type="text" [(ngModel)]="searchText.nombre" placeholder="Buscar por codigo">
+
+  </div>
+    <div class="col-sm-6" >
+  <label for="opcion">Buscar por categor&iacute;a:</label>
+  <select [(ngModel)]="cambio" (ngModelChange)="cambiarnombre($event)" class="form-control" >
+    <option [ngValue]="papeleria">Papeler&iacute;a/Oficina</option>
+      <option [ngValue]="cocina">Cocina</option>
+      <option [ngValue]="higiene">Higiene/Aseo/Limpieza</option>
+      <option [ngValue]="prevencion">Prevenci&oacute;n</option>
+  </select>
+</div>
+</div>
+<div class="table-wrapper-scroll-y" >
+<table class= "table table-striped table-bordered table-hover table-responsive-sm table-responsive-md table-responsive-lg" style="margin-top: 10px;" >
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">Precio</th>
+
+            <th scope="col">Tipo</th>
+            <th scope="col">Fecha de compra</th>
+            <th scope="col">Registrado por:</th>
+            <th scope="col">Modificar</th>  
+            <th scope="col">Dar de baja</th>            
+          </tr>
+        </thead>
+        <tbody>
+          
+          <!-- Listamos los datos mediante la directiva ngFor -->        
+          <tr *ngFor="let dato of item | filterBy: searchText "   >
+            <th *ngIf = "dato.autorizado === true  && dato.tipo=== cambio ">{{dato.nombre}}</th>
+            <td *ngIf = "dato.autorizado === true  && dato.tipo=== cambio">{{dato.descripcion}}</td>
+            <td *ngIf = "dato.autorizado === true  && dato.tipo=== cambio">{{dato.precio}}</td>
+
+            <td *ngIf = "dato.autorizado === true  && dato.tipo=== cambio">{{dato.tipo}}</td>
+            <td *ngIf = "dato.autorizado === true  && dato.tipo=== cambio">{{dato.fechacompra}}</td> 
+            <td *ngIf = "dato.autorizado === true  && dato.tipo=== cambio"  > {{dato.registrado}}</td>
+          <td *ngIf = "dato.autorizado === true  && dato.tipo=== cambio"><a  [routerLink]="['/modificar-insumos', dato.id]"href="modificar-insumos" class="btn btn-primary ">Modificar</a></td>   
+          <td *ngIf = "dato.autorizado === true  && dato.tipo=== cambio"><a  (click)="bajar(dato.id)" class="btn btn-primary ">Dar de baja</a></td>                
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+

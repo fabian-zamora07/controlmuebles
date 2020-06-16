@@ -1,0 +1,43 @@
+<div class="titutlo">
+  <div style="margin-top: 60px;">
+    
+    <h5 class="card-title" style="margin-bottom: 0px;">Autorizar insumos</h5>
+  </div>
+  </div>
+  <div class="titutlo" *ngIf = "num === 0" style="margin-top: 10px;">              
+    <h5 class="card-title" style="margin-bottom: 0px;" >Todos los insumos han sido autorizados</h5>
+
+</div>
+<div class="table-wrapper-scroll-y" >
+    <table class= "table table-striped table-bordered table-hover table-responsive-sm table-responsive-md table-responsive-lg" style="margin-bottom: 50px;" >
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Descripción</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Tipo</th>
+                <th scope="col">Fecha de compra</th>
+                <th scope="col">Registrado por:</th>
+                <th scope="col">Autorizar</th>
+                <th scope="col">Declinar</th>             
+              </tr>
+            </thead>
+            <tbody>
+              
+              <!-- Listamos los datos mediante la directiva ngFor -->        
+              <tr *ngFor="let dato of item" >
+                <th *ngIf = "dato.autorizado === false && dato.revisado ===true">{{dato.nombre}}</th>
+                <td *ngIf = "dato.autorizado === false && dato.revisado ===true">{{dato.descripcion}}</td>
+                <td *ngIf = "dato.autorizado === false && dato.revisado ===true">{{dato.precio}}</td>
+
+                <td *ngIf = "dato.autorizado === false && dato.revisado ===true">{{dato.tipo}}</td>
+                <td *ngIf = "dato.autorizado === false && dato.revisado ===true">{{dato.fechacompra}}</td> 
+                <td *ngIf = "dato.autorizado === false && dato.revisado ===true"  > {{dato.registrado}}</td>
+
+              <td *ngIf = "dato.autorizado === false && dato.revisado ===true"><a [routerLink]="['/autorizar-insumos']"  (click)="autorizar(dato.id)" class="btn btn-success">Autorizar</a></td>
+              <td *ngIf = "dato.autorizado === false && dato.revisado ===true "><a [routerLink]="['/autorizar-insumos']" (click)="bajar(dato.id)" class="btn btn-primary ">Declinar</a></td>                    
+          </tr>
+    
+        </tbody>
+      </table>
+    </div>

@@ -1,0 +1,52 @@
+<div class="titutlo">
+  <div style="margin-top: 60px;">
+    
+    <h5 class="card-title" style="margin-bottom: 0px;">Autorizar muebless</h5>
+  </div>
+  </div>
+  <div class="titutlo" *ngIf = "num === 0" style="margin-top: 10px;">              
+    <h5 class="card-title" style="margin-bottom: 0px;" >Todos los muebles han sido autorizados</h5>
+
+</div>
+<div class="table-wrapper-scroll-y" >
+    <table class= "table table-striped table-bordered table-hover table-responsive-sm table-responsive-md table-responsive-lg" style="margin-bottom: 50px;" >
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">Color</th>
+            <th scope="col">Imagen</th>
+            <th scope="col">Tipo</th>
+            <th scope="col">Valor</th>
+            <th scope="col">Revisado</th>
+            <th scope="col">Codigo</th>
+            <th scope="col">Modificar</th>             
+          </tr>
+        </thead>
+        <tbody>
+          
+          <!-- Listamos los datos mediante la directiva ngFor -->        
+          <tr *ngFor="let dato of item">
+            <th  *ngIf = "dato.autorizado === false && dato.revisado ===true">{{dato.nombre}}</th>
+            <td *ngIf = "dato.autorizado === false && dato.revisado ===true">{{dato.descripcion}}</td>
+            <td *ngIf = "dato.autorizado === false && dato.revisado ===true">{{dato.color}}</td>
+            <td *ngIf = "dato.autorizado === false && dato.revisado ===true" ><i (click)="mostrarFoto(dato.imagen, 'Mueble')" class="fa fa-picture-o " aria-hidden="true">Imagen</i></td>
+            <td *ngIf = "dato.autorizado === false && dato.revisado ===true">{{dato.tipo}}</td>
+            <td *ngIf = "dato.autorizado === false && dato.revisado ===true">{{dato.valor}}</td> 
+            <td *ngIf = "dato.autorizado === false && dato.revisado ===true">{{dato.revisadoPor}}</td>
+            <td *ngIf = "dato.autorizado === false && dato.revisado ===true"  > <ngx-barcode6
+                
+                [bc-format]="'MSI'"
+                [bc-value]="dato.codigoB"
+                [bc-display-value]="true"
+                [bc-element-type]= "elementType"
+              >
+              </ngx-barcode6> </td>
+              <td *ngIf = "dato.autorizado === false && dato.revisado ===true"><a [routerLink]="['/autorizar-mueble']" (click)="autorizar(dato.id)" class="btn btn-success">Autorizar</a></td>                   
+          </tr>
+    
+        </tbody>
+      </table>
+    </div>
+    
+    
