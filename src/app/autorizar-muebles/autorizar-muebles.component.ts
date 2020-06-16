@@ -22,6 +22,7 @@ export class AutorizarMueblesComponent implements OnInit {
   usuario: User;
   completoA: any;
   num = 0;
+  niim= 0;
 completoR: any;
 formularioMueblesD: FormGroup;
 urlImagen: any;
