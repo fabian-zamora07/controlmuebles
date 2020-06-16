@@ -10,7 +10,7 @@
 <div class="col-sm-6 mb-2" >
   <label for="opcion">Buscar por c&oacute;digo:</label>
  
-    <input class="form-control mr-sm-2" type="text" [(ngModel)]="searchText.codigoB" placeholder="Buscar por codigo">
+    <input class="form-control mr-sm-2" type="text" [(ngModel)]="searchText.codigoB" placeholder="Buscar por c&oacute;digo">
 
 </div>
 <div class="table-wrapper-scroll-y" >
@@ -23,6 +23,8 @@
         <th scope="col">Imagen</th>
         <th scope="col">Tipo</th>
         <th scope="col">Valor</th>
+        <th scope="col">Clave-Alfanum&eacute;rica</th>
+        <th scope="col">Responsable</th>
         <th scope="col">C&oacute;digo</th>
         <th scope="col">Descargar</th>
         <th scope="col">Modificar</th>               
@@ -38,6 +40,8 @@
         <td *ngIf = "dato.autorizado === true" ><i (click)="mostrarFoto(dato.imagen, 'Mueble')" class="fa fa-picture-o " aria-hidden="true">Imagen</i></td>
         <td *ngIf = "dato.autorizado === true">{{dato.tipo}}</td>
         <td *ngIf = "dato.autorizado === true">{{dato.valor}}</td> 
+        <td *ngIf = "dato.autorizado === true">{{dato.claveAlfanumerica}}</td> 
+        <td *ngIf = "dato.autorizado === true">{{dato.responsable}}</td> 
         <td *ngIf = "dato.autorizado === true" id = '{{dato.codigoB}}' > <ngx-barcode6
             
             [bc-format]="'CODE128'"

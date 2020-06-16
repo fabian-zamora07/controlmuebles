@@ -6,7 +6,7 @@
     </div>
 <div class= "container mt-5 " >
     <form [formGroup]="formularioInsumos">
-        <div class="row "  style="margin-top: 70px;  "  >
+        <div class="row "    >
             <div class="col-sm-4">
                     <label for="nombre">Nombre</label>
                     <div class = "form-group ">
@@ -18,11 +18,11 @@
                 </div>
             </div>
             <div class="col-sm-4">
-                    <label for="descripcion">Descripción</label>
+                    <label for="descripcion">Descripci&oacute;n</label>
                     <div class = "form-group ">
                     <input type="text" class="form-control" formControlName="descripcion" placeholder="Agrega el descripción" [ngClass]="{'is-invalid': !formularioInsumos.controls['descripcion'].valid && formularioInsumos.controls['descripcion'].touched, 'is-valid': formularioInsumos.controls['descripcion'].valid}">
                     <div  *ngIf="formularioInsumos.controls['descripcion'].invalid && formularioInsumos.controls['descripcion'].dirty" class="alert alert-danger" role="alert">
-                        <span  *ngIf="formularioInsumos.controls['descripcion'].errors.required" >La descripcion es requeridoa</span> 
+                        <span  *ngIf="formularioInsumos.controls['descripcion'].errors.required" >La descripci&oacute;n es requerido</span> 
                         
                     </div>
                 </div>
@@ -43,9 +43,9 @@
                
                 <select formControlName="tipo" class="col-sm-12 form-control" [ngClass]="{'is-invalid': !formularioInsumos.controls['tipo'].valid && formularioInsumos.controls['tipo'].touched, 'is-valid': formularioInsumos.controls['tipo'].valid}">
                         <option value="Cocina">Cocina</option>
-                        <option value="Papeleria">Papelería/Oficina</option>
-                        <option value="Baño">Higiene/Aseo/Limpieza</option>
-                        <option value="Baño">Prevención</option>
+                        <option value="Papelería/Oficina">Papeler&iacute;a/Oficina</option>
+                        <option value="Higiene/Aseo/Limpieza">Higiene/Aseo/Limpieza</option>
+                        <option value="Prevención">Prevenci&oacute;n</option>
                     </select>
 
                     <div class="invalid-feedback" *ngIf="formularioInsumos.controls['tipo'].errors?.required && formularioInsumos.controls['tipo'].dirty" class="alert alert-danger" role="alert">

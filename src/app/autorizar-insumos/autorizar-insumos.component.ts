@@ -74,18 +74,18 @@ completoR: any;
   }
 
 
-mensaje(){
+  mensaje(){
 
-for (let index = 0; index < this.item.length; index++) {
-this.completoA = this.item[index].autorizado;
-this.completoR = this.item[index].revisado;
-if (this.completoA === false && this.completoR === true) {
-this.num = 1;
+    for (let index = 0; index < this.item.length; index++) {
+      this.completoA = this.item[index].autorizado;
+      this.completoR = this.item[index].revisado;
+      if (this.completoA === false && this.completoR === true) {
+        this.num = 1;
  
-}
-}
+      }
+    }
 
-}
+  }
   autorizar(id){
     console.log(id)
     this.formularioInsumos.value.autorizado = true;
@@ -126,7 +126,7 @@ this.num = 1;
       cancelButtonColor: "#d33",
       confirmButtonText: "Si",
       cancelButtonText: "No"
-  }).then((result) => {
+    }).then((result) => {
       if (result.value) {
 
         this.spinner.show();
@@ -138,17 +138,17 @@ this.num = 1;
           this.spinner.hide();
           Swal.fire({
             title: "Declinado",
-            text: "Se declino correctamente",
+            text: "Se declinó correctamente",
             icon: "success"
           }).then((result) => {
             window.location.reload();
           });
     
         }).catch(()=>{
-         console.log('Error')
-        })
+            console.log('Error')
+          })
       }
-  })
+    })
 
 
   }

@@ -66,7 +66,7 @@ downloadPdf(id) {
     var doc = new jsPDF();
     var imgHeight = canvas.height * 42 / canvas.width;
     doc.addImage(imgData,0,0,42,imgHeight)
-    doc.save("image.pdf")
+    doc.save("codigoBarras"+id+".pdf")
   })
 }
 }

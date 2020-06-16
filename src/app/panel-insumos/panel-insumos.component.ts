@@ -57,6 +57,7 @@ export class PanelInsumosComponent implements OnInit {
       tipo: ['',Validators.required],
       fechacompra: ['',Validators.required],
       precio: ['',Validators.required],
+      fechaTerminado:['']
 
 
       
@@ -80,6 +81,7 @@ export class PanelInsumosComponent implements OnInit {
 
         tipo: muebles.tipo,
         fechacompra: new Date(muebles.fechacompra.seconds * 1000).toISOString().substr(0,10),
+        fechaTerminado: new Date(muebles.fechacompra.seconds * 1000).toISOString().substr(0,10),
 
       })
       console.log(this.formularioInsumos.value.fechacompra, muebles.tipo);
@@ -97,15 +99,13 @@ export class PanelInsumosComponent implements OnInit {
       if (result.value) {
 
         this.spinner.show();
-        this.formularioInsumos.value.revisado = false;
-        this.formularioInsumos.value.autorizado = false;
-        this.formularioInsumos.value.revisadoPor = null;
         this.formularioInsumos.value.activo = false;
         this.formularioInsumos.value.fechacompra = new Date(this.formularioInsumos.value.fechacompra);
+        this.formularioInsumos.value.fechaTerminado = new Date();
         this.db.doc('insumos/'+id).update(this.formularioInsumos.value).then((resultado)=>{
           this.spinner.hide();
           Swal.fire({
-            title: "Modificado",
+            title: "Terminado",
             text: "Se modifico correctamente",
             icon: "success"
           }).then((result) => {

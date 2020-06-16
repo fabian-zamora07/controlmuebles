@@ -40,6 +40,7 @@ export class RegistrarMuebleComponent implements OnInit {
       tipo: ['',Validators.required],
       fechaAdquisicion: ['',Validators.required],
       claveAlfanumerica: [''],
+      responsable: [''],
       valor: ['',Validators.required],
       imagen: ['',Validators.required],
 

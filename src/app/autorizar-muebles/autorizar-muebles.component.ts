@@ -60,7 +60,7 @@ urlImagen: any;
         })
         
     });
-    this.formularioMueblesD =this.fm.group({
+    this.formularioMueblesD = this.fm.group({
       nombre: [''],
       descripcion: [''],
       lugar: [''],
@@ -71,9 +71,7 @@ urlImagen: any;
       valor: [''],
       imagen: [''],
 
-      
-    })
- 
+    }); 
 
   }
   mensaje(){
@@ -115,7 +113,8 @@ urlImagen: any;
 }
 
 bajar(id){
-  this.db.doc<any>('muebles'+'/'+this.id).valueChanges().subscribe((muebles)=>{
+  console.log(id);
+  this.db.doc<any>('muebles'+'/'+id).valueChanges().subscribe((muebles)=>{
     console.log(muebles);
     this.formularioMueblesD.setValue({
       nombre: muebles.nombre,
@@ -141,20 +140,21 @@ bajar(id){
     cancelButtonText: "No"
   }).then((result) => {
     if (result.value) {
-      this.formularioMuebles.value.imagen = this.urlImagen;
-      this.formularioMuebles.value.revisado = false;
-      this.formularioMuebles.value.autorizado = false;
-      this.formularioMuebles.value.revisadoPor = "";
-      this.formularioMuebles.value.fechaAdquisicion = new Date(this.formularioMuebles.value.fechaAdquisicion);
-      this.db.doc('muebles/'+this.id).update(this.formularioMuebles.value).then((resultado)=>{
+      this.formularioMueblesD.value.imagen = this.urlImagen;
+      this.formularioMueblesD.value.revisado = false;
+      this.formularioMueblesD.value.autorizado = false;
+      this.formularioMueblesD.value.revisadoPor = "";
+      this.formularioMueblesD.value.fechaAdquisicion = new Date(this.formularioMueblesD.value.fechaAdquisicion);
+      this.db.doc('muebles/'+id).update(this.formularioMueblesD.value).then((resultado)=>{
         
         this.spinner.hide();
-                Swal.fire({
-          title: "Modificado",
-          text: "Se modifico correctamente",
+         Swal.fire({
+          title: "Declinado",
+          text: "Se declinó correctamente",
           icon: "success"
+        }).then((result) => {
+          window.location.reload();
         });
-        this.router.navigateByUrl('/revisar-mueble');
       }).catch(()=>{
        console.log('Error')
       })

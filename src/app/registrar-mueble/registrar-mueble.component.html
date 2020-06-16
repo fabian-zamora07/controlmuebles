@@ -18,11 +18,11 @@
                 </div>
             </div>
             <div class="col-sm-4">
-                    <label for="descripcion">Descripción</label>
+                    <label for="descripcion">Descripci&oacute;n</label>
                     <div class = "form-group ">
                     <input type="text" class="form-control" formControlName="descripcion" placeholder="Agrega el descripción" [ngClass]="{'is-invalid': !formularioMuebles.controls['descripcion'].valid && formularioMuebles.controls['descripcion'].touched, 'is-valid': formularioMuebles.controls['descripcion'].valid}">
                     <div  *ngIf="formularioMuebles.controls['descripcion'].invalid && formularioMuebles.controls['descripcion'].dirty" class="alert alert-danger" role="alert">
-                        <span  *ngIf="formularioMuebles.controls['descripcion'].errors.required" >La descripcion es requeridoa</span> 
+                        <span  *ngIf="formularioMuebles.controls['descripcion'].errors.required" >La descripci&oacute;n es requeridoa</span> 
                         
                     </div>
                 </div>
@@ -47,17 +47,7 @@
                 </div>
             </div>
         </div>
-            <div class="col-sm-4">
-                
-                    <label for="lugar">Lugar</label>
-                    <div class = "form-group ">
-                    <input type="text" class="form-control" formControlName="lugar" placeholder="Agrega el lugar" [ngClass]="{'is-invalid': !formularioMuebles.controls['lugar'].valid && formularioMuebles.controls['lugar'].touched, 'is-valid': formularioMuebles.controls['lugar'].valid}">
-                    <div  *ngIf="formularioMuebles.controls['lugar'].invalid && formularioMuebles.controls['lugar'].dirty" class="alert alert-danger" role="alert">
-                        <span  *ngIf="formularioMuebles.controls['lugar'].errors.required" >El lugar es requerido</span> 
-                        
-                    </div>
-                </div>
-            </div>
+
 
 
             <div class="form-group col-sm-4">
@@ -71,16 +61,35 @@
                     <div class="invalid-feedback" *ngIf="formularioMuebles.controls['tipo'].errors?.required && formularioMuebles.controls['tipo'].dirty" class="alert alert-danger" role="alert">
                         Campo requerido.
                     </div>
-            </div>
+            </div>            
             <div class="col-sm-4">
-                    <label for="claveAlfanumerica">Clave-Alfanumerica</label>
+                
+                    <label for="lugar">Lugar</label>
+                    <div class = "form-group ">
+                    <input type="text" class="form-control" formControlName="lugar" placeholder="Agrega el lugar" [ngClass]="{'is-invalid': !formularioMuebles.controls['lugar'].valid && formularioMuebles.controls['lugar'].touched, 'is-valid': formularioMuebles.controls['lugar'].valid}">
+                    <div  *ngIf="formularioMuebles.controls['lugar'].invalid && formularioMuebles.controls['lugar'].dirty" class="alert alert-danger" role="alert">
+                        <span  *ngIf="formularioMuebles.controls['lugar'].errors.required" >El lugar es requerido</span> 
+                        
+                    </div>
+                </div>
+            </div>            
+            <div class="col-sm-4">
+                <label for="responsable">Responsable</label>
+                <div class = "form-group ">
+                <input type="text" class="form-control"  formControlName="responsable" placeholder="Agrega el responsable">
+
+            </div>
+        </div>
+            <div class="col-sm-4">
+                    <label for="claveAlfanumerica">Clave-Alfanum&eacute;rica</label>
                     <div class = "form-group ">
                     <input type="text" class="form-control"  formControlName="claveAlfanumerica" placeholder="Agrega el ClaveAlfanumerica">
 
                 </div>
             </div>
+
             <div class="col-sm-4">
-                    <label for="fechaAdquisicion">Fecha de adquisición</label>
+                    <label for="fechaAdquisicion">Fecha de adquisici&oacute;n</label>
                     <div class = "form-group ">
                     <input type="date" class="form-control" formControlName="fechaAdquisicion" placeholder="Agrega la fechaAdquisicion" [ngClass]="{'is-invalid': !formularioMuebles.controls['fechaAdquisicion'].valid && formularioMuebles.controls['fechaAdquisicion'].touched, 'is-valid': formularioMuebles.controls['fechaAdquisicion'].valid}">
                 </div>

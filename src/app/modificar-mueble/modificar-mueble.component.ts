@@ -40,7 +40,8 @@ export class ModificarMuebleComponent implements OnInit {
       color: ['',Validators.required],
       tipo: ['',Validators.required],
       fechaAdquisicion: ['',Validators.required],
-      claveAlfanumerica: ['',Validators.required],
+      claveAlfanumerica: [''],
+      responsable: [''],
       valor: ['',Validators.required],
       imagen: [''],
 
@@ -57,6 +58,7 @@ export class ModificarMuebleComponent implements OnInit {
         tipo: muebles.tipo,
         fechaAdquisicion: new Date(muebles.fechaAdquisicion.seconds * 1000).toISOString().substr(0,10),
         claveAlfanumerica: muebles.claveAlfanumerica,
+        responsable: muebles.responsable,
         valor: muebles.valor,
         imagen: '',
       })
@@ -102,7 +104,7 @@ export class ModificarMuebleComponent implements OnInit {
               this.spinner.hide();
                       Swal.fire({
           title: "Modificado",
-          text: "Se modifico correctamente",
+          text: "Se modificó correctamente",
           icon: "success"
         }).then((result) => {
           this.router.navigateByUrl('/revisar-mueble');
