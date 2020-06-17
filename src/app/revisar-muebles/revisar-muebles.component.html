@@ -41,7 +41,7 @@
             <td *ngIf = "dato.revisado === false">{{dato.responsable}}</td> 
             <td *ngIf = "dato.revisado === false"  > <ngx-barcode6
                 
-                [bc-format]="'MSI'"
+                [bc-format]="'CODE128'"
                 [bc-value]="dato.codigoB"
                 [bc-display-value]="true"
                 [bc-element-type]= "elementType"

@@ -41,7 +41,7 @@
             <td *ngIf = "dato.autorizado === false && dato.revisado ===true">{{dato.revisadoPor}}</td>
             <td *ngIf = "dato.autorizado === false && dato.revisado ===true"  > <ngx-barcode6
                 
-                [bc-format]="'MSI'"
+                [bc-format]="'CODE128'"
                 [bc-value]="dato.codigoB"
                 [bc-display-value]="true"
                 [bc-element-type]= "elementType"
