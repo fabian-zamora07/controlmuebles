@@ -42,15 +42,15 @@
           
           <!-- Listamos los datos mediante la directiva ngFor -->        
           <tr *ngFor="let dato of item | filterBy: searchText "   >
-            <th *ngIf = "dato.autorizado === true  && dato.tipo=== cambio ">{{dato.nombre}}</th>
-            <td *ngIf = "dato.autorizado === true  && dato.tipo=== cambio">{{dato.descripcion}}</td>
-            <td *ngIf = "dato.autorizado === true  && dato.tipo=== cambio">{{dato.precio}}</td>
+            <th *ngIf = "dato.autorizado === true  && dato.tipo=== cambio && dato.activo == true">{{dato.nombre}}</th>
+            <td *ngIf = "dato.autorizado === true  && dato.tipo=== cambio && dato.activo == true">{{dato.descripcion}}</td>
+            <td *ngIf = "dato.autorizado === true  && dato.tipo=== cambio && dato.activo == true">{{dato.precio}}</td>
 
-            <td *ngIf = "dato.autorizado === true  && dato.tipo=== cambio">{{dato.tipo}}</td>
-            <td *ngIf = "dato.autorizado === true  && dato.tipo=== cambio">{{dato.fechacompra}}</td> 
-            <td *ngIf = "dato.autorizado === true  && dato.tipo=== cambio"  > {{dato.registrado}}</td>
-          <td *ngIf = "dato.autorizado === true  && dato.tipo=== cambio"><a  [routerLink]="['/modificar-insumos', dato.id]"href="modificar-insumos" class="btn btn-primary ">Modificar</a></td>   
-          <td *ngIf = "dato.autorizado === true  && dato.tipo=== cambio"><a  [routerLink]="['/panel-insumos']" (click)="bajar(dato.id)" class="btn btn-primary ">Dar de baja</a></td>                
+            <td *ngIf = "dato.autorizado === true  && dato.tipo=== cambio && dato.activo == true">{{dato.tipo}}</td>
+            <td *ngIf = "dato.autorizado === true  && dato.tipo=== cambio && dato.activo == true">{{dato.fechacompra}}</td> 
+            <td *ngIf = "dato.autorizado === true  && dato.tipo=== cambio && dato.activo == true"  > {{dato.registrado}}</td>
+          <td *ngIf = "dato.autorizado === true  && dato.tipo=== cambio && dato.activo == true"><a  [routerLink]="['/modificar-insumos', dato.id]"href="modificar-insumos" class="btn btn-primary ">Modificar</a></td>   
+          <td *ngIf = "dato.autorizado === true  && dato.tipo=== cambio && dato.activo == true"><a  [routerLink]="['/panel-insumos']" (click)="bajar(dato.id)" class="btn btn-primary ">Dar de baja</a></td>                
       </tr>
 
     </tbody>
