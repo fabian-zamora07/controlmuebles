@@ -29,7 +29,7 @@
             <div class="col-sm-4">
                 <label for="precio">Precio</label>
                 <div class = "form-group ">
-                <input type="text" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' formControlName="precio" placeholder="Agrega el precio" [ngClass]="{'is-invalid': !formularioInsumos.controls['precio'].valid && formularioInsumos.controls['precio'].touched, 'is-valid': formularioInsumos.controls['precio'].valid}">
+                <input type="number" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' formControlName="precio" placeholder="Agrega el precio" [ngClass]="{'is-invalid': !formularioInsumos.controls['precio'].valid && formularioInsumos.controls['precio'].touched, 'is-valid': formularioInsumos.controls['precio'].valid}">
                 <div  *ngIf="formularioInsumos.controls['precio'].invalid && formularioInsumos.controls['precio'].dirty" class="alert alert-danger" role="alert">
                     <span  *ngIf="formularioInsumos.controls['precio'].errors.required" >El precio es requerido</span> 
                     

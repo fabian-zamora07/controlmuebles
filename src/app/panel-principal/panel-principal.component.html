@@ -7,11 +7,17 @@
           <h5 class="card-title" style="margin-bottom: 0px;">Control muebles</h5>
       </div>
       </div>
-<div class="col-sm-6 mb-2" >
+      <div class="row"style="margin-left: 10px; margin-right:10px"> 
+<div class="col-sm-6 " >
   <label for="opcion">Buscar por c&oacute;digo:</label>
  
     <input class="form-control mr-sm-2" type="text" [(ngModel)]="searchText.codigoB" placeholder="Buscar por c&oacute;digo">
-
+    
+</div>
+<div class="col-sm-6 " >
+  <label for="opcion">  </label>
+  <button (click)="exportAsXLSX()" class="btn boton_generar_excel"><i class="fa fa-file-excel-o fa-1x" ></i>Generar Excel</button>
+</div>
 </div>
 <div class="table-wrapper-scroll-y" >
 <table class= "table table-striped table-bordered table-hover table-responsive-sm table-responsive-md table-responsive-lg" style="margin-bottom: 10px;" >

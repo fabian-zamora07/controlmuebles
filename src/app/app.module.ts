@@ -26,7 +26,7 @@ import { AutorizarInsumosComponent } from './autorizar-insumos/autorizar-insumos
 import { AutorizarMueblesComponent } from './autorizar-muebles/autorizar-muebles.component';
 import { RevisarMueblesComponent } from './revisar-muebles/revisar-muebles.component';
 import { FilterPipeModule } from 'ngx-filter-pipe';
-
+import { ExcelService } from './recursos/excel.service';
 
 @NgModule({
   declarations: [
@@ -62,7 +62,7 @@ import { FilterPipeModule } from 'ngx-filter-pipe';
 
   ],
   providers: [
-    AngularFireAuth, AngularFirestore
+    AngularFireAuth, AngularFirestore, ExcelService
 
   ],
   bootstrap: [AppComponent]

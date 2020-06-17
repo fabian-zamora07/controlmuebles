@@ -40,7 +40,7 @@
             <div class="col-sm-4">
                 <label for="valor">Valor</label>
                 <div class = "form-group ">
-                <input type="text" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' formControlName="valor" placeholder="Agrega el valor" [ngClass]="{'is-invalid': !formularioMuebles.controls['valor'].valid && formularioMuebles.controls['valor'].touched, 'is-valid': formularioMuebles.controls['valor'].valid}">
+                <input type="number" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' formControlName="valor" placeholder="Agrega el valor" [ngClass]="{'is-invalid': !formularioMuebles.controls['valor'].valid && formularioMuebles.controls['valor'].touched, 'is-valid': formularioMuebles.controls['valor'].valid}">
                 <div  *ngIf="formularioMuebles.controls['valor'].invalid && formularioMuebles.controls['valor'].dirty" class="alert alert-danger" role="alert">
                     <span  *ngIf="formularioMuebles.controls['valor'].errors.required" >El valor es requerido</span> 
                     
