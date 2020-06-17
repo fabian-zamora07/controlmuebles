@@ -10,7 +10,7 @@
   
     <label for="opcion">Buscar por nombre:</label>
  
-    <input class="form-control " type="text" [(ngModel)]="searchText.nombre" placeholder="Buscar por codigo">
+    <input class="form-control " type="text" [(ngModel)]="searchText.nombre" placeholder="Buscar por nombre">
 
   </div>
     <div class="col-sm-6" >
@@ -28,7 +28,7 @@
     <thead class="thead-dark">
         <tr>
             <th scope="col">Nombre</th>
-            <th scope="col">Descripción</th>
+            <th scope="col">Descripci&oacute;n</th>
             <th scope="col">Precio</th>
 
             <th scope="col">Tipo</th>
@@ -50,7 +50,7 @@
             <td *ngIf = "dato.autorizado === true  && dato.tipo=== cambio">{{dato.fechacompra}}</td> 
             <td *ngIf = "dato.autorizado === true  && dato.tipo=== cambio"  > {{dato.registrado}}</td>
           <td *ngIf = "dato.autorizado === true  && dato.tipo=== cambio"><a  [routerLink]="['/modificar-insumos', dato.id]"href="modificar-insumos" class="btn btn-primary ">Modificar</a></td>   
-          <td *ngIf = "dato.autorizado === true  && dato.tipo=== cambio"><a  (click)="bajar(dato.id)" class="btn btn-primary ">Dar de baja</a></td>                
+          <td *ngIf = "dato.autorizado === true  && dato.tipo=== cambio"><a  [routerLink]="['/panel-insumos']" (click)="bajar(dato.id)" class="btn btn-primary ">Dar de baja</a></td>                
       </tr>
 
     </tbody>

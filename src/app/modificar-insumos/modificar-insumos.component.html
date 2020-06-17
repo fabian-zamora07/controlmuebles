@@ -17,11 +17,11 @@
                 </div>
             </div>
             <div class="col-sm-4">
-                    <label for="descripcion">Descripción</label>
+                    <label for="descripcion">Descripci&oacute;n</label>
                     <div class = "form-group ">
                     <input type="text" class="form-control" formControlName="descripcion" placeholder="Agrega el descripción" [ngClass]="{'is-invalid': !formularioInsumos.controls['descripcion'].valid && formularioInsumos.controls['descripcion'].touched, 'is-valid': formularioInsumos.controls['descripcion'].valid}">
                     <div  *ngIf="formularioInsumos.controls['descripcion'].invalid && formularioInsumos.controls['descripcion'].dirty" class="alert alert-danger" role="alert">
-                        <span  *ngIf="formularioInsumos.controls['descripcion'].errors.required" >La descripcion es requeridoa</span> 
+                        <span  *ngIf="formularioInsumos.controls['descripcion'].errors.required" >La descripci&oacute;n es requeridoa</span> 
                         
                     </div>
                 </div>
@@ -29,7 +29,7 @@
             <div class="col-sm-4">
                 <label for="precio">Precio</label>
                 <div class = "form-group ">
-                <input type="text" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' formControlName="precio" placeholder="Agrega el precio" [ngClass]="{'is-invalid': !formularioInsumos.controls['precio'].valid && formularioInsumos.controls['precio'].touched, 'is-valid': formularioInsumos.controls['precio'].valid}">
+                <input type="number" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' formControlName="precio" placeholder="Agrega el precio" [ngClass]="{'is-invalid': !formularioInsumos.controls['precio'].valid && formularioInsumos.controls['precio'].touched, 'is-valid': formularioInsumos.controls['precio'].valid}">
                 <div  *ngIf="formularioInsumos.controls['precio'].invalid && formularioInsumos.controls['precio'].dirty" class="alert alert-danger" role="alert">
                     <span  *ngIf="formularioInsumos.controls['precio'].errors.required" >El precio es requerido</span> 
                     
@@ -42,8 +42,9 @@
                
                 <select formControlName="tipo" class="col-sm-12 form-control" [ngClass]="{'is-invalid': !formularioInsumos.controls['tipo'].valid && formularioInsumos.controls['tipo'].touched, 'is-valid': formularioInsumos.controls['tipo'].valid}">
                         <option value="Cocina">Cocina</option>
-                        <option value="Papeleria">Papelería</option>
-                        <option value="Baño">Baño</option>
+                        <option value="Papelería/Oficina">Papeler&iacute;a/Oficina</option>
+                        <option value="Higiene/Aseo/Limpieza">Higiene/Aseo/Limpieza</option>
+                        <option value="Prevención">Prevenci&oacute;n</option>
                     </select>
 
                     <div class="invalid-feedback" *ngIf="formularioInsumos.controls['tipo'].errors?.required && formularioInsumos.controls['tipo'].dirty" class="alert alert-danger" role="alert">
@@ -66,6 +67,6 @@
             </div>
         
         </div>
-        <ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "ball-beat" [fullScreen] = "true"><p style="color: white" > Registrando... </p></ngx-spinner>
+        <ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "ball-beat" [fullScreen] = "true"><p style="color: white" > Modificando... </p></ngx-spinner>
     </form>
 </div>

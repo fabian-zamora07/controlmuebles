@@ -13,7 +13,7 @@
         <thead class="thead-dark">
           <tr>
             <th scope="col">Nombre</th>
-            <th scope="col">Descripción</th>
+            <th scope="col">Descripci&oacute;n</th>
             <th scope="col">Precio</th>
 
             <th scope="col">Tipo</th>
@@ -35,7 +35,7 @@
             <td *ngIf = "dato.revisado === false">{{dato.fechacompra}}</td> 
             <td *ngIf = "dato.revisado === false"  > {{dato.registrado}}</td>
             <td *ngIf = "dato.revisado === false  "><a  [routerLink]="['/modificar-insumos', dato.id]"href="modificar-insumos" class="btn btn-primary ">Modificar</a></td>
-              <td *ngIf = "dato.revisado === false" ><a  (click)="revisar(dato.id)" class="btn btn-success" title="Revisar">Revisar</a></td>   
+              <td *ngIf = "dato.revisado === false" ><a  [routerLink]="['/revisar-insumos']" (click)="revisar(dato.id)" class="btn btn-success" title="Revisar">Revisar</a></td>   
                               
           </tr>
     

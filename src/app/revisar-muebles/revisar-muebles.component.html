@@ -13,11 +13,13 @@
         <thead class="thead-dark">
           <tr>
             <th scope="col">Nombre</th>
-            <th scope="col">Descripción</th>
+            <th scope="col">Descripci&oacute;n</th>
             <th scope="col">Color</th>
             <th scope="col">Imagen</th>
             <th scope="col">Tipo</th>
             <th scope="col">Valor</th>
+            <th scope="col">Clave-Alfanum&eacute;rica</th>
+            <th scope="col">Responsable</th>
             <th scope="col">Codigo</th>
             <th scope="col">Modificar</th>
             <th scope="col">Revisar</th>             
@@ -35,6 +37,8 @@
             <td *ngIf = "dato.revisado === false"><i (click)="mostrarFoto(dato.imagen, 'Mueble')" class="fa fa-picture-o " aria-hidden="true">Imagen</i></td>
             <td *ngIf = "dato.revisado === false">{{dato.tipo}}</td>
             <td *ngIf = "dato.revisado === false">{{dato.valor}}</td> 
+            <td *ngIf = "dato.revisado === false">{{dato.claveAlfanumerica}}</td> 
+            <td *ngIf = "dato.revisado === false">{{dato.responsable}}</td> 
             <td *ngIf = "dato.revisado === false"  > <ngx-barcode6
                 
                 [bc-format]="'MSI'"
@@ -44,7 +48,7 @@
               >
               </ngx-barcode6> </td>
               <td *ngIf = "dato.revisado === false"><a  [routerLink]="['/modificar-mueble', dato.id]"href="modificar-mueble" class="btn btn-primary ">Modificar</a></td> 
-              <td *ngIf = "dato.revisado === false" ><a  (click)="revisar(dato.id)" class="btn btn-success" title="Revisar">Revisar</a></td>   
+              <td *ngIf = "dato.revisado === false" ><a [routerLink]="['/revisar-mueble']" (click)="revisar(dato.id)" class="btn btn-success" title="Revisar">Revisar</a></td>   
                           
           </tr>
     
