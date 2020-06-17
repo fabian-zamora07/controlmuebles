@@ -59,7 +59,7 @@
           >
           </ngx-barcode6>
           <td *ngIf = "dato.autorizado === true && dato.activo == true "><a [routerLink]="['/panel-muebles']"(click)="downloadPdf(dato.codigoB)" class="btn btn-primary "download>C&oacute;digo</a></td> 
-          <td *ngIf = "dato.autorizado === true && dato.activo == true"><a  [routerLink]="['/modificar-mueble', dato.id]"href="modificar-mueble" class="btn btn-primary ">Modificar</a></td> 
+          <td *ngIf = "dato.autorizado === true && dato.activo == true"><a  [routerLink]="['/modificar-mueble', dato.id,'panel']"href="modificar-mueble" class="btn btn-primary ">Modificar</a></td> 
           <td *ngIf = "dato.autorizado === true  && dato.activo == true"><a  [routerLink]="['/panel-muebles']" (click)="bajar(dato.id)" class="btn btn-primary ">Dar de baja</a></td>                 
       </tr>
 

@@ -35,17 +35,17 @@ const routes: Routes = [
   },
   {
 
-    path: 'revisar-mueble', component: RevisarMueblesComponent
+    path: 'revisar-muebles', component: RevisarMueblesComponent
   },
   {
     path: 'revisar-insumos', component: RevisarInsumosComponent
   },
   {
 
-    path: 'modificar-mueble/:muebleID', component: ModificarMuebleComponent
+    path: 'modificar-mueble/:muebleID/:atras', component: ModificarMuebleComponent
   },
   {
-    path: 'modificar-insumos/:insumoID', component: ModificarInsumosComponent
+    path: 'modificar-insumos/:insumoID/:atras', component: ModificarInsumosComponent
   },
 ];
 

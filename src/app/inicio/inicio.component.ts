@@ -44,7 +44,7 @@ export class InicioComponent implements OnInit {
     
   }
   revisarM(){
-    this.router.navigateByUrl('/revisar-mueble');
+    this.router.navigateByUrl('/revisar-muebles');
     
   }
   autorizarM(){

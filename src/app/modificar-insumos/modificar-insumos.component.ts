@@ -22,6 +22,7 @@ export class ModificarInsumosComponent implements OnInit {
   item: any[] = new Array<any>();
   dato: any;
   id : string;
+  page: string;
   nuevaImg = 0;
   constructor(private fm: FormBuilder,public router: Router, private storage: AngularFireStorage,
     public afAuth: AngularFireAuth, private db: AngularFirestore,private spinner: NgxSpinnerService, private activeRoute: ActivatedRoute) { 
@@ -42,7 +43,8 @@ export class ModificarInsumosComponent implements OnInit {
 
 
       
-    })
+    });
+    this.page = this.activeRoute.snapshot.params.atras;
     this.id = this.activeRoute.snapshot.params.insumoID;
     this.db.doc<any>('insumos'+'/'+this.id).valueChanges().subscribe((muebles)=>{
       console.log(muebles);
