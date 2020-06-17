@@ -28,6 +28,7 @@ export class PanelInsumosComponent implements OnInit {
  higiene: any ='Higiene/Aseo/Limpieza';
  prevencion: any ='Prevención';
  formularioInsumos: FormGroup;
+ reporteM: any[] = new Array<any>();
  reporte: any[] = new Array<any>();
  reporteHI: any[] = new Array<any>();
  reportePRE: any[] = new Array<any>();
@@ -295,7 +296,7 @@ export class PanelInsumosComponent implements OnInit {
 
     Swal.fire({
       title: "Descarga",
-      text: "¿Descargar reporte de muebles?",
+      text: "¿Descargar reporte de insumos?",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
@@ -327,63 +328,5 @@ export class PanelInsumosComponent implements OnInit {
     });
    
   }
-  opcionBotonExcel(): void {          
-    Swal.fire({
-        title: "Opciones",
-        text: "¿Qué deseas realizar?",
-        showCancelButton: true,
-        confirmButtonText: "Archivo completo",
-        cancelButtonText: "Archivo por rango",
-        cancelButtonColor: "#038f3d"
-    }).then((result) => {
-        if (result.value) {
-            this.exportAsXLSX();
-        } else if (result.dismiss === Swal.DismissReason.cancel) {
-            this.ingresarRangosExcel();
-        }
-    })
-}
-
-ingresarRangosExcel(): void {
-    Swal.mixin({
-        input: 'text',
-        confirmButtonText: 'Siguiente',
-        showCancelButton: true,
-        cancelButtonText: "Cancelar",
-        progressSteps: ['1']
-    }).queue([
-        {
-          title: 'Rango inicial',
-          text: 'Ingresa el id con el que deseas empezar'
-        },
-    ]).then((result) => {
-      console.log(result["value"])
-        try {                
-          
-            const rango_inicial = result[0].value;
-            if (result) {
-                const rangos = JSON.stringify(result[0].value)
-                console.log(result[0].value)
-                Swal.fire({
-                    title: 'Finalizar',
-                    html: `
-                    Rango:
-                    <pre><code>${rangos}</code></pre>
-                    `,
-                    confirmButtonColor: "#038f3d",
-                    confirmButtonText: 'Descargar archivo excel',
-
-                }).then((result) => {
-                    if (result.value) {
-                        //Aqui ya se tiene que generar el excel
-
-                    }
-                })
-            }
-        } catch (error) {
-            //Dejo pasar el error sin afectar a algo
-        } 
-    })
-}
 
 }

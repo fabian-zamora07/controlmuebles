@@ -34,7 +34,7 @@
             <td *ngIf = "dato.revisado === false">{{dato.tipo}}</td>
             <td *ngIf = "dato.revisado === false">{{dato.fechacompra}}</td> 
             <td *ngIf = "dato.revisado === false"  > {{dato.registrado}}</td>
-            <td *ngIf = "dato.revisado === false  "><a  [routerLink]="['/modificar-insumos', dato.id]"href="modificar-insumos" class="btn btn-primary ">Modificar</a></td>
+            <td *ngIf = "dato.revisado === false  "><a  [routerLink]="['/modificar-insumos', dato.id,'revisar']"href="modificar-insumos" class="btn btn-primary ">Modificar</a></td>
               <td *ngIf = "dato.revisado === false" ><a  [routerLink]="['/revisar-insumos']" (click)="revisar(dato.id)" class="btn btn-success" title="Revisar">Revisar</a></td>   
                               
           </tr>

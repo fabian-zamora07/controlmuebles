@@ -47,8 +47,8 @@
                 [bc-element-type]= "elementType"
               >
               </ngx-barcode6> </td>
-              <td *ngIf = "dato.revisado === false"><a  [routerLink]="['/modificar-mueble', dato.id]"href="modificar-mueble" class="btn btn-primary ">Modificar</a></td> 
-              <td *ngIf = "dato.revisado === false" ><a [routerLink]="['/revisar-mueble']" (click)="revisar(dato.id)" class="btn btn-success" title="Revisar">Revisar</a></td>   
+              <td *ngIf = "dato.revisado === false"><a  [routerLink]="['/modificar-mueble', dato.id,'revisar']"href="modificar-mueble" class="btn btn-primary ">Modificar</a></td> 
+              <td *ngIf = "dato.revisado === false" ><a [routerLink]="['/revisar-muebles']" (click)="revisar(dato.id)" class="btn btn-success" title="Revisar">Revisar</a></td>   
                           
           </tr>
     

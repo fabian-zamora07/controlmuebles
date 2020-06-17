@@ -23,6 +23,7 @@ export class ModificarMuebleComponent implements OnInit {
   dato: any;
   id : string;
   nuevaImg = 0;
+  page: string;
   constructor(private fm: FormBuilder,public router: Router, private storage: AngularFireStorage,
     public afAuth: AngularFireAuth, private db: AngularFirestore,private spinner: NgxSpinnerService, private activeRoute: ActivatedRoute) { 
     this.spinner.hide();
@@ -47,6 +48,7 @@ export class ModificarMuebleComponent implements OnInit {
 
       
     })
+    this.page = this.activeRoute.snapshot.params.atras;
     this.id = this.activeRoute.snapshot.params.muebleID;
     this.db.doc<any>('muebles'+'/'+this.id).valueChanges().subscribe((muebles)=>{
       console.log(muebles);
@@ -107,7 +109,7 @@ export class ModificarMuebleComponent implements OnInit {
           text: "Se modificó correctamente",
           icon: "success"
         }).then((result) => {
-          this.router.navigateByUrl('/revisar-mueble');
+          this.router.navigateByUrl('/revisar-muebles');
         });
 
             }).catch(()=>{
@@ -131,7 +133,7 @@ export class ModificarMuebleComponent implements OnInit {
           text: "Se modifico correctamente",
           icon: "success"
         });
-        this.router.navigateByUrl('/revisar-mueble');
+        this.router.navigateByUrl('/revisar-muebles');
       }).catch(()=>{
        console.log('Error')
       })
