@@ -131,7 +131,7 @@ bajar(id){
   })
   Swal.fire({
     title: "Declinar",
-    text: "¿Declinar el insumo?",
+    text: "¿Declinar el mueble?",
     icon: "warning",
     showCancelButton: true,
     confirmButtonColor: "#3085d6",

@@ -33,22 +33,23 @@
         <th scope="col">Responsable</th>
         <th scope="col">C&oacute;digo</th>
         <th scope="col">Descargar</th>
-        <th scope="col">Modificar</th>               
+        <th scope="col">Modificar</th>  
+        <th scope="col">Dar de baja</th>               
       </tr>
     </thead>
     <tbody>
       
       <!-- Listamos los datos mediante la directiva ngFor -->        
       <tr *ngFor="let dato of item | filterBy: searchText" >
-        <td *ngIf = "dato.autorizado === true">{{dato.nombre}}</td>
-        <td *ngIf = "dato.autorizado === true">{{dato.descripcion}}</td>
-        <td *ngIf = "dato.autorizado === true">{{dato.color}}</td>
-        <td *ngIf = "dato.autorizado === true" ><i (click)="mostrarFoto(dato.imagen, 'Mueble')" class="fa fa-picture-o " aria-hidden="true">Imagen</i></td>
-        <td *ngIf = "dato.autorizado === true">{{dato.tipo}}</td>
-        <td *ngIf = "dato.autorizado === true">{{dato.valor}}</td> 
-        <td *ngIf = "dato.autorizado === true">{{dato.claveAlfanumerica}}</td> 
-        <td *ngIf = "dato.autorizado === true">{{dato.responsable}}</td> 
-        <td *ngIf = "dato.autorizado === true" id = '{{dato.codigoB}}' > <ngx-barcode6
+        <td *ngIf = "dato.autorizado === true && dato.activo == true">{{dato.nombre}}</td>
+        <td *ngIf = "dato.autorizado === true && dato.activo == true">{{dato.descripcion}}</td>
+        <td *ngIf = "dato.autorizado === true && dato.activo == true">{{dato.color}}</td>
+        <td *ngIf = "dato.autorizado === true && dato.activo == true" ><i (click)="mostrarFoto(dato.imagen, 'Mueble')" class="fa fa-picture-o " aria-hidden="true">Imagen</i></td>
+        <td *ngIf = "dato.autorizado === true && dato.activo == true">{{dato.tipo}}</td>
+        <td *ngIf = "dato.autorizado === true && dato.activo == true">{{dato.valor}}</td> 
+        <td *ngIf = "dato.autorizado === true && dato.activo == true">{{dato.claveAlfanumerica}}</td> 
+        <td *ngIf = "dato.autorizado === true && dato.activo == true">{{dato.responsable}}</td> 
+        <td *ngIf = "dato.autorizado === true && dato.activo == true" id = '{{dato.codigoB}}' > <ngx-barcode6
             
             [bc-format]="'CODE128'"
             [bc-value]="dato.codigoB"
@@ -57,9 +58,9 @@
             
           >
           </ngx-barcode6>
-          <td *ngIf = "dato.autorizado === true "><a [routerLink]="['/panel-muebles']"(click)="downloadPdf(dato.codigoB)" class="btn btn-primary "download>C&oacute;digo</a></td> 
-          <td *ngIf = "dato.autorizado === true"><a  [routerLink]="['/modificar-mueble', dato.id]"href="modificar-mueble" class="btn btn-primary ">Modificar</a></td> 
-                            
+          <td *ngIf = "dato.autorizado === true && dato.activo == true "><a [routerLink]="['/panel-muebles']"(click)="downloadPdf(dato.codigoB)" class="btn btn-primary "download>C&oacute;digo</a></td> 
+          <td *ngIf = "dato.autorizado === true && dato.activo == true"><a  [routerLink]="['/modificar-mueble', dato.id]"href="modificar-mueble" class="btn btn-primary ">Modificar</a></td> 
+          <td *ngIf = "dato.autorizado === true  && dato.activo == true"><a  [routerLink]="['/panel-muebles']" (click)="bajar(dato.id)" class="btn btn-primary ">Dar de baja</a></td>                 
       </tr>
 
 
