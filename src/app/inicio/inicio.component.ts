@@ -19,7 +19,7 @@ export class InicioComponent implements OnInit {
     this.afAuth.user.subscribe((usuario)=>{
 
       this.usuario = usuario;
-      if (usuario.email === 'fzamora_ro007@hotmail.com') {
+      if (usuario.email === 'controlmi20201@gmail.com' || usuario.email === 'controlmi20202@gmail.com') {
         this.jefe = true;
       }
    
